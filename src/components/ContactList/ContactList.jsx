@@ -1,11 +1,12 @@
+import {
+  selectError,
+  selectFilteredContacts,
+  selectLoading,
+} from "../../redux/contacts/slice";
 import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 import { useSelector } from "react-redux";
-import {
-  selectFilteredContacts,
-  selectLoading,
-  selectError,
-} from "../../redux/contactsSlice";
+
 import { SyncLoader } from "react-spinners";
 
 const ContactList = () => {

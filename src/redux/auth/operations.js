@@ -36,7 +36,8 @@ export const loginThunk = createAsyncThunk(
     try {
       const response = await goitAPI.post("/users/login", body);
       setAuthHeader(response.data.token);
-      toast.success("Ви успішно увійшли!");
+      toast.success(`Вітаємо, ${response.data.user.name}!`);
+
       return response.data;
     } catch (error) {
       toast.error("Неправильно введено Email або Пароль");
@@ -53,6 +54,25 @@ export const logoutThunk = createAsyncThunk(
       removeAuthHeader();
     } catch (error) {
       toast.error("Помилка виходу.");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const refreshThunk = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    try {
+      const savedToken = thunkAPI.getState().auth.token;
+      if (!savedToken) {
+        return thunkAPI.rejectWithValue("Token is not exist!");
+      }
+
+      setAuthHeader(savedToken);
+
+      const response = await goitAPI.get("users/current");
+      return response.data;
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }

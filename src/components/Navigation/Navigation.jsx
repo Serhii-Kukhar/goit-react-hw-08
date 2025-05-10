@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import s from "./Navigation.module.css";
 import clsx from "clsx";
-import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { useSelector } from "react-redux";
 
 const Navigation = () => {
@@ -18,16 +18,6 @@ const Navigation = () => {
         <NavLink className={setActiveClass} to="/contacts">
           Contacts
         </NavLink>
-      )}
-      {!isLoggedIn && (
-        <>
-          <NavLink className={setActiveClass} to="/register">
-            Register
-          </NavLink>
-          <NavLink className={setActiveClass} to="/login">
-            Login
-          </NavLink>
-        </>
       )}
     </nav>
   );
