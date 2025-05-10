@@ -1,0 +1,13 @@
+/* .listBox {
+  display: flex;
+  justify-content: center;
+} */
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  padding: 0;
+  width: 100%;
+}
