@@ -1,0 +1,21 @@
+.formWrapper {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.linkText {
+  text-align: center;
+}
+
+.link {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

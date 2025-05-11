@@ -33,6 +33,7 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     try {
       await goitAPI.delete(`/contacts/${contactId}`);
+      toast.error("Контакт видалено!");
       return contactId;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

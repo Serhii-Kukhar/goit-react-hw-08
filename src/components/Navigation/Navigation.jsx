@@ -1,25 +1,34 @@
 import { NavLink } from "react-router-dom";
-import s from "./Navigation.module.css";
-import clsx from "clsx";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { Button, Stack } from "@mui/material";
+
+const ActiveLink = ({ isActive }) => ({
+  color: "white",
+  border: isActive ? "1px solid white" : "none",
+  transition: "all 0.3s",
+});
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const setActiveClass = ({ isActive }) => {
-    return clsx(s.link, isActive && s.active);
-  };
+
   return (
-    <nav>
-      <NavLink className={setActiveClass} to="/">
-        Home
+    <Stack direction="row" spacing={2}>
+      <NavLink to="/">
+        {({ isActive }) => (
+          <Button sx={ActiveLink({ isActive })}>Головна</Button>
+        )}
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={setActiveClass} to="/contacts">
-          Contacts
+        <NavLink to="/contacts">
+          {({ isActive }) => (
+            <Button sx={ActiveLink({ isActive })} color="inherit">
+              Контакти
+            </Button>
+          )}
         </NavLink>
       )}
-    </nav>
+    </Stack>
   );
 };
 

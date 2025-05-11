@@ -1,8 +1,12 @@
-.list {
+.contactsBox {
+  margin-top: 30px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: flex-start;
-  padding: 0;
-  width: 100%;
+  justify-content: center;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: fit-content;
 }

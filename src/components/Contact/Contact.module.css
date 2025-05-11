@@ -2,13 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  width: 350px;
-}
+  border: none;
 
+  padding: 10px;
+
+  width: 350px;
+  box-shadow: 0 4px 10px rgba(77, 77, 77, 0.1);
+}
+.text {
+  font-size: large;
+}
 .contactInfo {
   display: flex;
   flex-direction: column;
@@ -21,21 +24,11 @@
   gap: 10px;
 }
 
-.icon {
-  color: #ffffff;
+.iconNumber {
+  color: #00a00bfe;
   font-size: 20px;
 }
-
-.deleteButton {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-  &:hover,
-  &:focus {
-    background-color: #cc0000;
-  }
+.iconName {
+  color: #00329feb;
+  font-size: 20px;
 }

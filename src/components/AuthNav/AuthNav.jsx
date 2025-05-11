@@ -1,21 +1,30 @@
 import { NavLink } from "react-router-dom";
-import clsx from "clsx";
-import s from "./AuthNav.module.css";
+import { Button, Stack } from "@mui/material";
 
-const setActiveClass = ({ isActive }) => {
-  return clsx(isActive && s.active);
-};
+const ActiveLink = ({ isActive }) => ({
+  color: "white",
+  border: isActive ? "1px solid white" : "none",
+  transition: "all 0.3s",
+});
 
 const AuthNav = () => {
   return (
-    <div>
-      <NavLink to="/register" className={setActiveClass}>
-        Register
+    <Stack direction="row" spacing={2}>
+      <NavLink to="/register">
+        {({ isActive }) => (
+          <Button sx={ActiveLink({ isActive })} color="inherit">
+            Реєстрація
+          </Button>
+        )}
       </NavLink>
-      <NavLink to="/login" className={setActiveClass}>
-        Login
+      <NavLink to="/login">
+        {({ isActive }) => (
+          <Button sx={ActiveLink({ isActive })} color="inherit">
+            Увійти
+          </Button>
+        )}
       </NavLink>
-    </div>
+    </Stack>
   );
 };
 

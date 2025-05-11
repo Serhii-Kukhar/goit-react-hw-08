@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import s from "./SearchBox.module.css";
 import { selectNameFilter } from "../../redux/filters/selectors";
 import { changeFilter } from "../../redux/filters/slice";
+import { Box, TextField, Typography } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
@@ -12,16 +13,28 @@ const SearchBox = () => {
   };
 
   return (
-    <div className={s.searchBox}>
-      <p className={s.label}>Find contacts by name</p>
-      <input
-        className={s.search}
-        type="text"
-        value={filter}
-        onChange={handleChange}
-        placeholder="Search..."
-      />
-    </div>
+    <Box sx={{ "& > :not(style)": { m: 1 } }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "center",
+        }}
+      >
+        <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+        <TextField
+          id="input-with-sx"
+          label="Шукати контакт за імʼям:"
+          variant="standard"
+          type="text"
+          value={filter}
+          onChange={handleChange}
+          sx={{
+            width: "300px",
+          }}
+        />
+      </Box>
+    </Box>
   );
 };
 

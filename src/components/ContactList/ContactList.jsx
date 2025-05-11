@@ -16,7 +16,7 @@ const ContactList = () => {
   return (
     <div>
       {isLoading && !error && <SyncLoader />}
-      <div className={s.listBox}>
+      <div className={s.contactsBox}>
         <ul className={s.list}>
           {contacts.map(({ id, name, number }) => (
             <Contact key={id} id={id} name={name} number={number} />

@@ -5,17 +5,18 @@ import { nanoid } from "nanoid";
 
 import s from "./ContactForm.module.css";
 import { addContact } from "../../redux/contacts/operations";
+import { Button, TextField } from "@mui/material";
 
 const FeedbackSchema = Yup.object().shape({
   username: Yup.string()
-    .min(3, "Too short!")
-    .max(50, "Too long!")
-    .required("Name is required"),
+    .min(3, "Занадто коротке імʼя!")
+    .max(50, "Занадто довге імʼя!")
+    .required("Імʼя є обовʼязковим"),
   phone: Yup.string()
-    .matches(/^\+?\d+$/, "Only digits!")
-    .min(3, "Too short!")
-    .max(15, "Too long!")
-    .required("Phone is required"),
+    .matches(/^\+?\d+$/, "Лише цифри!")
+    .min(3, "Занадто короткий номер!")
+    .max(15, "Занадто довгий номер!")
+    .required("Номер телефону є обовʼязковим"),
 });
 
 const initialValue = {
@@ -43,43 +44,38 @@ const ContactForm = () => {
       validationSchema={FeedbackSchema}
     >
       <Form className={s.form}>
-        <div className={s.inputContainer}>
-          <label className={s.label} htmlFor="username">
-            Name
-          </label>
-          <Field
-            className={s.input}
-            type="text"
-            name="username"
-            placeholder="Julia Baker"
-          />
-          <ErrorMessage
-            className={s.errorMessage}
-            name="username"
-            component="span"
-          />
+        <Field
+          as={TextField}
+          id="username"
+          label="Імʼя:"
+          variant="standard"
+          className={s.input}
+          type="text"
+          name="username"
+        />
+        <ErrorMessage
+          className={s.errorMessage}
+          name="username"
+          component="span"
+        />
+        <Field
+          as={TextField}
+          id="phone"
+          label="Номер телефону:"
+          variant="standard"
+          type="tel"
+          name="phone"
+        />
+        <ErrorMessage
+          className={s.errorMessage}
+          name="phone"
+          component="span"
+        />
+        <div className={s.button}>
+          <Button type="submit" variant="outlined" size="large" color="success">
+            Добавити
+          </Button>
         </div>
-
-        <div className={s.inputContainer}>
-          <label className={s.label} htmlFor="phone">
-            Number
-          </label>
-          <Field
-            className={s.input}
-            type="tel"
-            name="phone"
-            placeholder="777-77-77"
-          />
-          <ErrorMessage
-            className={s.errorMessage}
-            name="phone"
-            component="span"
-          />
-        </div>
-
-        <button className={s.submitBtn} type="submit">
-          Add contact
-        </button>
       </Form>
     </Formik>
   );
