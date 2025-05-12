@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 import s from "./ContactForm.module.css";
 import { addContact } from "../../redux/contacts/operations";
 import { Button, TextField } from "@mui/material";
+import { Add } from "@mui/icons-material";
 
 const FeedbackSchema = Yup.object().shape({
   username: Yup.string()
@@ -72,8 +73,16 @@ const ContactForm = () => {
           component="span"
         />
         <div className={s.button}>
-          <Button type="submit" variant="outlined" size="large" color="success">
+          {/* <Button type="submit" variant="outlined" size="large" color="success">
             Добавити
+          </Button> */}
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<Add />}
+            type="submit"
+          >
+            Додати контакт
           </Button>
         </div>
       </Form>

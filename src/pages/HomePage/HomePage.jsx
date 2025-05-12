@@ -23,46 +23,59 @@ export const HomePage = () => {
         </Typography>
       </Box>
 
-      <Paper sx={{ p: 3, backgroundColor: "#f5f5f5", mb: 4 }}>
-        <Typography variant="h5" component="h2" gutterBottom>
-          Як це працює?
-        </Typography>
-        <Typography variant="body1" component="p">
-          Для того, щоб додати новий контакт, просто натисніть кнопку{" "}
-          <Button
-            type="submit"
-            variant="outlined"
-            size="small"
-            color="success"
-            onClick={handleAddContactClick}
-          >
-            Добавити
-          </Button>{" "}
-          Ви зможете ввести ім'я та телефон щоб зберегти її для подальшого
-          використання.
-        </Typography>
-      </Paper>
+      <Box
+        sx={{
+          display: "flex",
+          gap: 3,
+          flexWrap: "wrap",
+        }}
+      >
+        <Paper
+          sx={{
+            flex: 1,
+            minWidth: "300px",
+            p: 3,
+            backgroundColor: "#f5f5f5",
+          }}
+        >
+          <Typography variant="h5" component="h2" gutterBottom>
+            Як це працює?
+          </Typography>
+          <Typography variant="body1" component="p">
+            Для того, щоб додати новий контакт, просто натисніть кнопку. Ви
+            зможете ввести ім'я та телефон щоб зберегти її для подальшого
+            використання.
+          </Typography>
+        </Paper>
 
-      <Paper sx={{ p: 3, backgroundColor: "#f5f5f5" }}>
-        <Typography variant="h5" component="h2" gutterBottom>
-          Ваші контакти
-        </Typography>
-        <Typography variant="body1" component="p">
-          Список ваших контактів буде відображений у вкладці Контакти. Ви
-          зможете шукати контакти за ім'ям або переглядати всі контакти в
-          зручному вигляді.
-        </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<Add />}
-            onClick={handleAddContactClick}
-          >
-            Додати контакт
-          </Button>
-        </Box>
-      </Paper>
+        <Paper
+          sx={{
+            flex: 1,
+            minWidth: "300px",
+            p: 3,
+            backgroundColor: "#f5f5f5",
+          }}
+        >
+          <Typography variant="h5" component="h2" gutterBottom>
+            Ваші контакти
+          </Typography>
+          <Typography variant="body1" component="p">
+            Список ваших контактів буде відображений у вкладці Контакти. Ви
+            зможете шукати контакти за ім'ям або переглядати всі контакти в
+            зручному вигляді.
+          </Typography>
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<Add />}
+              onClick={handleAddContactClick}
+            >
+              Додати контакт
+            </Button>
+          </Box>
+        </Paper>
+      </Box>
     </Container>
   );
 };

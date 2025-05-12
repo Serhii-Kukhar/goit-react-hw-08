@@ -5,7 +5,7 @@
   border: none;
 
   padding: 10px;
-
+  background-color: rgba(245, 245, 245, 0.732);
   width: 350px;
   box-shadow: 0 4px 10px rgba(77, 77, 77, 0.1);
 }

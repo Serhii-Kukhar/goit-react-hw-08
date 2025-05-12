@@ -4,10 +4,9 @@ import {
   selectLoading,
 } from "../../redux/contacts/slice";
 import Contact from "../Contact/Contact";
+import Loader from "../Loader/Loader";
 import s from "./ContactList.module.css";
 import { useSelector } from "react-redux";
-
-import { SyncLoader } from "react-spinners";
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
@@ -15,7 +14,7 @@ const ContactList = () => {
   const error = useSelector(selectError);
   return (
     <div>
-      {isLoading && !error && <SyncLoader />}
+      {isLoading && !error && <Loader />}
       <div className={s.contactsBox}>
         <ul className={s.list}>
           {contacts.map(({ id, name, number }) => (

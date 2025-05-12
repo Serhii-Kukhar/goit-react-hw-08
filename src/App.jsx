@@ -15,6 +15,7 @@ import { selectIsRefreshing } from "./redux/auth/selectors";
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import Loader from "./components/Loader/Loader";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <SyncLoader />
+    <Loader />
   ) : (
     <>
       <Routes>
