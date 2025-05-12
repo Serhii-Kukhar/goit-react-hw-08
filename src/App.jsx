@@ -2,9 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import { ToastContainer } from "react-toastify";
-import { SyncLoader } from "react-spinners";
-
 import { HomePage } from "./pages/HomePage/HomePage";
 import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -16,6 +13,8 @@ import { selectIsRefreshing } from "./redux/auth/selectors";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import Loader from "./components/Loader/Loader";
+
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -61,11 +60,7 @@ const App = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
-      <ToastContainer
-        autoClose={2000}
-        position="top-center"
-        reverseOrder={false}
-      />
+      <Toaster />
     </>
   );
 };

@@ -73,9 +73,6 @@ const ContactForm = () => {
           component="span"
         />
         <div className={s.button}>
-          {/* <Button type="submit" variant="outlined" size="large" color="success">
-            Добавити
-          </Button> */}
           <Button
             variant="contained"
             color="primary"
