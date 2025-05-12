@@ -109,7 +109,10 @@ const Contact = ({ name, number, id }) => {
       </Dialog>
 
       <Dialog open={openEdit} onClose={() => setOpenEdit(false)}>
-        <DialogTitle>Редагувати контакт</DialogTitle>
+        <DialogTitle sx={{ display: "flex", justifyContent: "center" }}>
+          Редагувати контакт
+        </DialogTitle>
+
         <DialogContent>
           <TextField
             label="Ім'я"
@@ -117,7 +120,7 @@ const Contact = ({ name, number, id }) => {
             fullWidth
             value={editedName}
             onChange={(e) => setEditedName(e.target.value)}
-            sx={{ marginBottom: 2, marginTop: 2 }}
+            sx={{ marginBottom: 2, marginTop: 1 }}
           />
           <TextField
             label="Номер телефону"
@@ -127,7 +130,7 @@ const Contact = ({ name, number, id }) => {
             onChange={(e) => setEditedNumber(e.target.value)}
           />
         </DialogContent>
-        <DialogActions sx={{ justifyContent: "center" }}>
+        <DialogActions sx={{ justifyContent: "center", marginBottom: 2 }}>
           <Button
             onClick={() => setOpenEdit(false)}
             color="error"
